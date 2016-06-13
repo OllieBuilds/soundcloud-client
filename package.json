@@ -1,6 +1,13 @@
 {
   "name": "sc-react-redux",
   "version": "1.0.0",
+  "babel": {
+  "presets": [
+    "es2015",
+    "react",
+    "stage-2"
+  ]
+},
   "description": "",
   "main": "index.js",
   "scripts": {
