@@ -11,3 +11,5 @@ function Stream({tracks = []}) {
     </div>
   );
 }
+
+export default Stream;
