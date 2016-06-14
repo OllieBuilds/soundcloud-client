@@ -1,8 +1,8 @@
 import * as actionTypes from '../constants/actionTypes';
 
 const initialState = {
-  tracks: [],
-  activeTrack: null
+    tracks: [],
+    activeTrack: null
 };
 
 export default function(state = initialState, action) {
@@ -17,10 +17,10 @@ export default function(state = initialState, action) {
 
 function setTracks(state, action) {
   const { tracks } = action;
-  return [ ...state, tracks];
+  return { ...state, tracks };
 }
 
 function setPlay(state, action) {
   const { track } = action;
-  return { ...state, activeTrack: track};
+  return { ...state, activeTrack: track };
 }
