@@ -45,9 +45,9 @@ class Stream extends Component {
         </div>
         {
           activeTrack ?
-          // Need to find correct URL property to access streaming url
-            <h1>{`${activeTrack.origin.stream_url}`}</h1>:
-            // <audio id="audio" ref="audio" src={`${activeTrack.origin.stream_url}?client_id=${CLIENT_ID}`}></audio> :
+            // Need to find correct URL property to access streaming url
+            // <h1>{`${activeTrack.origin}`}</h1>:
+            <audio id="audio" ref="audio" src={`${activeTrack.origin.stream_url}?client_id=${CLIENT_ID}`}></audio> :
             null
         }
       </div>
