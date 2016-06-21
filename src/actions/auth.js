@@ -4,32 +4,32 @@ import { setTracks } from '../actions/track';
 
 function setMe(user) {
   return {
-    type: actionTypes.Me_SET,
+    type: actionTypes.ME_SET,
     user
   };
 }
 
 export function auth() {
-  return function (dispatch){
-    SC.initialize({client_id: CLIENT_ID, redirect_uri: REDIRECT_URI});
+  return function (dispatch) {
+    SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });
 
     SC.connect().then((session) => {
-      fetch(`//api.soundcloud/me?oauth_token=?{session.oauth_token}`)
-      .then((response) => response.json())
-      .then((me) => {
-        dispatch(setMe(me));
-        dispathc(fetchStream(me, session));
-      });
+      fetch(`//api.soundcloud.com/me?oauth_token=${session.oauth_token}`)
+        .then((response) => response.json())
+        .then((me) => {
+          dispatch(setMe(me));
+          dispatch(fetchStream(me, session));
+        });
     });
   };
 };
 
 function fetchStream(me, session) {
-  return function(dispatch) {
+  return function (dispatch) {
     fetch(`//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`)
-    .then((response) => response.json())
-    .then((data) => {
-      dispatch(setTracks(data.collection));
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch(setTracks(data.collection));
+      });
   };
 }
