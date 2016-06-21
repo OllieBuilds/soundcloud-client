@@ -13,11 +13,12 @@
   "scripts": {
     "start": "webpack-dev-server --progress --colors --hot --config ./webpack.config.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/setup.js 'src/**/*spec.js'",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "compile": "NODE_ENV=production webpack -p --config webpack.production.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OllieBuilds/soundcloud-react-redux.git"
+    "url": "git+https://github.com/OllieBuilds/soundcloud-client.git"
   },
   "keywords": [],
   "author": "",
@@ -25,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/OllieBuilds/soundcloud-react-redux/issues"
   },
-  "homepage": "https://github.com/OllieBuilds/soundcloud-react-redux#readme",
+  "homepage": "https://github.com/OllieBuilds/soundcloud-client#readme",
   "devDependencies": {
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
