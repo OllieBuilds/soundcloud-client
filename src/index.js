@@ -8,20 +8,12 @@ import configureStore from './stores/configureStore';
 import App from './components/App';
 import Callback from './components/Callback';
 import Stream from './components/Stream';
-// import ReactBootstrap from 'react-bootstrap'
 
 const store = configureStore();
 
 const history = syncHistoryWithStore(browserHistory, store);
 
-// let button = ReactBootstrap.Button({
-//   bsStyle="success",
-//   bsSize = "large",
-//   children = "track"
-// });
-
 ReactDOM.render(
-  // button, mountNode,
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>

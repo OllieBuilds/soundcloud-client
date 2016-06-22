@@ -1,13 +1,8 @@
-'use strict';
-
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { CLIENT_ID } from '../../constants/auth';
-import ReactBootstrap from 'react-bootstrap';
-// import HoverMixin from '../HoverEffect';
 
 class Stream extends Component {
-  // mixins: [HoverMixin]
 
   componentDidUpdate() {
     const audioElement = ReactDOM.findDOMNode(this.refs.audio);
@@ -23,24 +18,7 @@ class Stream extends Component {
     }
   }
 
-
-  // style() {
-  //   if (this.state.hovered) {
-  //     return { backgroundColor: "red" }
-  //   } else {
-  //     return { backgroundColor: "grey"}
-  //     }
-  //   }
-
-  // render() {
-
   render () {
-    let btnStyle = {
-      color: 'black',
-      fontSize: '62px',
-      margin: '3em'
-    };
-
     const { user, tracks = [], activeTrack, onAuth, onPlay } = this.props;
 
     return (
@@ -49,8 +27,7 @@ class Stream extends Component {
           {
             user ?
               <div>{user.username}</div> :
-              <button
-                style={btnStyle} onClick={onAuth} type="button">Login</button>
+              <button onClick={onAuth} type="button">Login</button>
           }
         </div>
         <br/>
@@ -68,9 +45,9 @@ class Stream extends Component {
         </div>
         {
           activeTrack ?
-            // Need to find correct URL property to access streaming url
-            // <h1>{`${activeTrack.origin}`}</h1>:
-            <audio id="audio" ref="audio" src={`${activeTrack.origin.stream_url}?client_id=${CLIENT_ID}`}></audio> :
+          // Need to find correct URL property to access streaming url
+            <h1>{`${activeTrack.origin.stream_url}`}</h1>:
+            // <audio id="audio" ref="audio" src={`${activeTrack.origin.stream_url}?client_id=${CLIENT_ID}`}></audio> :
             null
         }
       </div>
